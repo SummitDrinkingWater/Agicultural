@@ -1,7 +1,13 @@
+
+
+using Agicultural.Context;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddDbContext<Cont>( x => { x.UseSqlServer(builder.Configuration.GetConnectionString("")); });
 
 var app = builder.Build();
 
