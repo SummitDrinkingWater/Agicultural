@@ -1,4 +1,5 @@
 ﻿using Agicultural.Context;
+using Agicultural.Models;
 
 namespace Agicultural.DAO
 {
@@ -6,5 +7,9 @@ namespace Agicultural.DAO
     {
         private readonly Cont cont;
         public dao(Cont con) { cont = con; }
+
+        public string login(LoginModel login) {
+            return "";
+        }
     }
 }

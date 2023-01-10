@@ -1,4 +1,6 @@
-﻿using Agicultural.Models;
+﻿using Agicultural.Context;
+using Agicultural.DAO;
+using Agicultural.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -6,18 +8,33 @@ namespace Agicultural.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
-        {
-            _logger = logger;
+
+        private readonly dao DataAccess;
+
+
+        //public HomeController(ILogger<HomeController> logger)
+        //{
+        //    _logger = logger;
+        //}
+
+        public HomeController(Cont con) {
+            DataAccess = new dao(con);
         }
 
         public IActionResult Index()
         {
             return View();
         }
+        [HttpPost("[action]"), Route("/Login")]
+        public IActionResult Login([FromForm] LoginModel login) {   //test only
+            var data = DataAccess.login(login);
+            //Login Code here
+            return RedirectToAction("sampleIfLoginSuccess");
+        }
 
+
+        //============================================================== Do not edit below
         public IActionResult Privacy()
         {
             return View();
