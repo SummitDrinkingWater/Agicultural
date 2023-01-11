@@ -7,5 +7,6 @@ namespace Agicultural.Context
     {
         public Cont(DbContextOptions<Cont> contextOptions) : base(contextOptions) { }
         public DbSet<LoginModel> logins { get; set; }
+        public DbSet<EmployeeModel> employees { get; set; }
     }
 }

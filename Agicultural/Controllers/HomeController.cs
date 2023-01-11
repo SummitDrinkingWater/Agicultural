@@ -24,15 +24,19 @@ namespace Agicultural.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            return View("Login");
         }
         [HttpPost("[action]"), Route("/Login")]
-        public IActionResult Login([FromForm] LoginModel login) {   //test only
+        public IActionResult Login([FromForm] LoginModel login) {   //test only do not overthink
             var data = DataAccess.login(login);
             //Login Code here
             return RedirectToAction("sampleIfLoginSuccess");
         }
 
+        [HttpPost("[action]"), Route("/Dashboard")]
+        public IActionResult Dashboard() {
+            return View();
+        }
 
         //============================================================== Do not edit below
         public IActionResult Privacy()
