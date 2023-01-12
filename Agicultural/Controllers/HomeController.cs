@@ -2,6 +2,7 @@
 using Agicultural.DAO;
 using Agicultural.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 using System.Diagnostics;
 
 namespace Agicultural.Controllers
@@ -28,12 +29,14 @@ namespace Agicultural.Controllers
         }
         [HttpPost("[action]"), Route("/LoginType")]
         public IActionResult LoginType([FromForm]LoginTypeModel logintype) {
-            if (logintype.employee == "employee")
-            {
+            if (logintype.employee == "employee") //<----- last update
                 return View("Dashboard");
-            }
+            else if (logintype.admin == "administrator")
+                return View("UserPage");
+            else if (logintype.timein == "timein")
+                return View("EventPage");
             else
-            return View();
+                return View();
         }
 
         [HttpPost("[action]"), Route("/Login")]
