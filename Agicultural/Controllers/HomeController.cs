@@ -21,16 +21,28 @@ namespace Agicultural.Controllers
         public HomeController(Cont con) {
             DataAccess = new dao(con);
         }
-
+        
         public IActionResult Index()
         {
-            return View("Login");
+            return View("LoginType");
         }
+        [HttpPost("[action]"), Route("/LoginType")]
+        public IActionResult LoginType([FromForm]LoginTypeModel logintype) {
+            if (logintype.employee == "employee")
+            {
+                return View("Dashboard");
+            }
+            else
+            return View();
+        }
+
         [HttpPost("[action]"), Route("/Login")]
-        public IActionResult Login([FromForm] LoginModel login) {   //test only do not overthink
-            var data = DataAccess.login(login);
+        public IActionResult Login([FromForm] LoginModel login ) {  
+            //test only do not overthink
+            //var data = DataAccess.login(login);
             //Login Code here
-            return RedirectToAction("sampleIfLoginSuccess");
+         
+            return RedirectToAction("Login");
         }
 
         [HttpPost("[action]"), Route("/Dashboard")]
@@ -38,6 +50,33 @@ namespace Agicultural.Controllers
             return View();
         }
 
+        [HttpPost("[action]"), Route("/UserPage")]
+        public IActionResult UserPage()
+        {
+
+            return View();
+        }
+
+        [HttpPost("[action]"), Route("/MemberPage")]
+        public IActionResult MemberPage()
+        {
+
+            return View();
+        }
+
+        [HttpPost("[action]"), Route("/Event")]
+        public IActionResult EventPage()
+        {
+
+            return View();
+        }
+
+        [HttpPost("[action]"), Route("/ReportPage")]
+        public IActionResult ReportPage()
+        {
+
+            return View();
+        }
         //============================================================== Do not edit below
         public IActionResult Privacy()
         {
