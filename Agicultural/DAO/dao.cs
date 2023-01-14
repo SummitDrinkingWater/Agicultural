@@ -26,11 +26,11 @@ namespace Agicultural.DAO
             //else
 
 
-            //if (login.empid == "emp") return "EmpLogin";   
-            //else if (login.empid == "admin") return "AdminLogin";
-            //else if (login.empid == "timein") return "Login";
+            if (login.empid == "emp") return "EmpLogin";
+            else if (login.empid == "admin") return "AdminLogin";
+            else if (login.empid == "timein") return "Login";
                
-            //return login.empid is null ? "Login" : login.empid;
+            return login.empid is null ? "Login" : login.empid;
         }
     }
 }
