@@ -24,7 +24,13 @@ namespace Agicultural.DAO
             //        return "Login";
             //    }
             //else
-            return "failed";
+
+
+            //if (login.empid == "emp") return "EmpLogin";   
+            //else if (login.empid == "admin") return "AdminLogin";
+            //else if (login.empid == "timein") return "Login";
+               
+            //return login.empid is null ? "Login" : login.empid;
         }
     }
 }

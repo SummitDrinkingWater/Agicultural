@@ -29,22 +29,21 @@ namespace Agicultural.Controllers
         }
         [HttpPost("[action]"), Route("/LoginType")]
         public IActionResult LoginType([FromForm]LoginTypeModel logintype) {
-            if (logintype.employee == "employee") //<----- last update
-                return View("Dashboard");
-            else if (logintype.admin == "admin")
-                return View("UserPage");
-            else if (logintype.timein == "timein")
-                return View("EventPage");
-            else
-                return View();
+
+            string logins = string.Empty;
+
+            if (logintype.employee is "employee") logins = "EmpLogin";
+            else if (logintype.admin is "admin") logins = "AdminLogin";
+            else if (logintype.timein is "timein") logins = "Login";
+
+            return View(logins);
         }
 
         [HttpPost("[action]"), Route("/Login")]
-        public IActionResult Login([FromForm] LoginModel login ) {  
-            //test only do not overthink
-            //var data = DataAccess.login(login);
-            //Login Code here
-         
+        public IActionResult Login([FromForm] LoginModel login ) {
+
+            var data = DataAccess.login(login);
+
             return RedirectToAction("Login");
         }
 
