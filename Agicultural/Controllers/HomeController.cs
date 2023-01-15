@@ -3,6 +3,7 @@ using Agicultural.DAO;
 using Agicultural.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
+using QRCoder;
 using System.Diagnostics;
 
 namespace Agicultural.Controllers
@@ -32,7 +33,7 @@ namespace Agicultural.Controllers
 
             string logins = string.Empty;
 
-            if (logintype.employee is "employee") logins = "EmpLogin";
+            if (logintype.employee is "emp") logins = "EmpLogin";
             else if (logintype.admin is "admin") logins = "AdminLogin";
             else if (logintype.timein is "timein") logins = "Login";
 
@@ -41,10 +42,10 @@ namespace Agicultural.Controllers
 
         [HttpPost("[action]"), Route("/Login")]
         public IActionResult Login([FromForm] LoginModel login ) {
-
             var data = DataAccess.login(login);
-
-            return RedirectToAction("Login");
+            
+            //return RedirectToAction("Login");
+            return View(data);
         }
 
         [HttpPost("[action]"), Route("/Dashboard")]
@@ -78,6 +79,18 @@ namespace Agicultural.Controllers
         {
 
             return View();
+        }
+
+        public string GenQr(string qr) {
+            QRCodeGenerator generate = new QRCodeGenerator();
+            var qrdata = generate.CreateQrCode(qr, QRCodeGenerator.ECCLevel.Q);
+            var bit = new BitmapByteQRCode(qrdata);
+            var img = bit.GetGraphic(20);
+            return Convert.ToBase64String(img);
+        }
+
+        public string ToQr([FromBody] QrModel qrm) {
+            return GenQr(qrm.qrmod);
         }
         //============================================================== Do not edit below
         public IActionResult Privacy()

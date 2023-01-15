@@ -1,6 +1,7 @@
 ﻿using Agicultural.Context;
 using Agicultural.Models;
 using Microsoft.EntityFrameworkCore;
+using QRCoder;
 
 namespace Agicultural.DAO
 {
@@ -26,7 +27,7 @@ namespace Agicultural.DAO
             //else
 
 
-            if (login.empid == "emp") return "EmpLogin";
+            if (login.empid == "emp") return "EmpDashboardPage";
             else if (login.empid == "admin") return "AdminLogin";
             else if (login.empid == "timein") return "Login";
                
@@ -34,3 +35,10 @@ namespace Agicultural.DAO
         }
     }
 }
+//QRCodeGenerator generator = new QRCodeGenerator();
+//var qrdata = generator.CreateQrCode(qr, QRCodeGenerator.ECCLevel.Q);
+
+//var bit = new BitmapByteQRCode(qrdata);
+//var img = bit.GetGraphic(20);
+
+//return Convert.ToBase64String(img);
