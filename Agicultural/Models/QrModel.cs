@@ -2,7 +2,7 @@
 {
 	public class QrModel
 	{
-			public string? qrmod { get; set; }
+		public string qrmod { get; set; }
 	}
 }
 

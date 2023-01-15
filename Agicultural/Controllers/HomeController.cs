@@ -63,6 +63,7 @@ namespace Agicultural.Controllers
         [HttpPost("[action]"), Route("/MemberPage")]
         public IActionResult MemberPage()
         {
+            
 
             return View();
         }
@@ -88,9 +89,10 @@ namespace Agicultural.Controllers
             var img = bit.GetGraphic(20);
             return Convert.ToBase64String(img);
         }
-
-        public string ToQr([FromBody] QrModel qrm) {
-            return GenQr(qrm.qrmod);
+        [HttpPost]
+        public string Jav([FromBody] QrModel dd)
+        {
+            return GenQr(dd.qrmod);
         }
         //============================================================== Do not edit below
         public IActionResult Privacy()
