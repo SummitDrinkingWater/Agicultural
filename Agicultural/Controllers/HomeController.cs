@@ -54,7 +54,7 @@ namespace Agicultural.Controllers
         [HttpPost("[action]"), Route("/Create")]
         public IActionResult Create([FromForm] EmployeeModel emp)
         {
-            DataAccess.AddStudent(emp);
+            //DataAccess.AddStudent(emp);
             //return RedirectToAction("Login");
             return View("Dashboard");
         }

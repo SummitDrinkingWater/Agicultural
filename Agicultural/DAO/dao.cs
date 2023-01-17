@@ -31,14 +31,25 @@ namespace Agicultural.DAO
 
         public string AddStudent(EmployeeModel emp)
         {
-            string sql = string.Format(@"Insert into employee(fname, lname) 
-                                     values ('{0}', '{1}'')", emp.name, emp.role);
+            string sql = string.Format(@"Insert into employee(fname, lname) values ('{0}', '{1}'')", emp.name, emp.role); //<<<< query for create
             int count = cont.Database.ExecuteSqlRaw(sql);
             if (count > 0)
                 return "Added";
             else
                 return "Failed";
         }
+
+        public List<EmployeeModel> GetEmployee(EmployeeModel model)
+        {
+            var getdata = cont.employees.FromSqlRaw(@"select * from employee").ToList();
+            return getdata;
+        }
+
+        public void UpdateEmployee(EmployeeModel employee) {
+            string updatedata = $"update query here";
+            cont.Database.ExecuteSqlRaw(updatedata);
+        }
+
     }
 }
 //QRCodeGenerator generator = new QRCodeGenerator();
