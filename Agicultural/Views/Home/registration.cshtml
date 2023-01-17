@@ -79,8 +79,17 @@
                                     <div class="col-md-6 mb-4">
 
                                     <div class="form-outline">
-                                        <input type="text" id="lastName" class="form-control form-control-lg" />
-                                        <label class="form-label" for="lastName">Contact Number</label>
+                                        <input type="text" id="empid" name="empid" class="form-control form-control-lg" />
+                                            <label class="form-label" for="empid">Employee ID</label>
+                                    </div>
+
+                                </div>
+                              
+                                    <div class="col-md-6 mb-4">
+
+                                    <div class="form-outline">
+                                        <input type="text" id="age" name="age" class="form-control form-control-lg" />
+                                            <label class="form-label" for="age">Age</label>
                                     </div>
 
                                 </div>
@@ -95,53 +104,148 @@
 
                                     </div>
 
-                                    <div class="col-md-6 mb-4 d-flex align-items-center">
-
-                                        <div class="md-form md-outline input-with-post-icon datepicker" id="customDays">
-                                            <input placeholder="Select date" type="text" id="Customization" class="form-control">
-                                            <label for="Customization">Try me...</label>
-                                            <i class="fas fa-calendar input-prefix" tabindex=0></i>
-                                        </div>
-
-                                    </div>
-                                </div>
-
-
-                                <div class="row">
-                                    <div class="col-md-6 mb-4 pb-2">
-
-                                        <div class="form-outline">
-                                            <input type="email" id="emailAddress" class="form-control form-control-lg" />
-                                            <label class="form-label" for="emailAddress">Email</label>
-                                        </div>
-
-                                    </div>
-                                    <div class="col-md-6 mb-4 pb-2">
+                                    
+                                  <div class="col-md-6 mb-4 pb-2">
 
                                         <div class="form-outline">
                                             <input type="tel" id="phoneNumber" class="form-control form-control-lg" />
-                                            <label class="form-label" for="phoneNumber">Phone Number</label>
+                                            <label class="form-label" for="phoneNumber">Position</label>
                                         </div>
 
                                     </div>
-                                </div>
 
-                                <div class="row">
-                                    <div class="col-12">
+                                    <div class="col-md-6 mb-4 pb-2">
 
+                                        <div class="form-outline">
+                                            <input type="email" id="address" name="address" class="form-control form-control-lg" />
+                                            <label class="form-label" for="address">Address</label>
+                                        </div>
+
+                                    </div>
+
+                                    
+                                    <div class="col-md-6 mb-4">
+                                            <label class="form-label">Date of birth</label>
+                                            <div class="row gutters-xs">
+                                                <div class="col-5">
+                                                    <select name="user[month]" class="form-control custom-select">
+                                                        <option value="">Month</option>
+                                                        <option value="1">January</option>
+                                                        <option value="2">February</option>
+                                                        <option value="3">March</option>
+                                                        <option value="4">April</option>
+                                                        <option value="5">May</option>
+                                                        <option value="6">June</option>
+                                                        <option value="7">July</option>
+                                                        <option value="8">August</option>
+                                                        <option value="9">September</option>
+                                                        <option value="10">October</option>
+                                                        <option value="11">November</option>
+                                                        <option value="12">December</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-3">
+                                                    <select name="user[day]" class="form-control custom-select">
+                                                        <option value="">Day</option>
+                                                        @{
+                                                            for (int i = 1; i <= 31; i++)
+                                                            {
+                                                                <option>@i</option>
+                                                            }
+                                                        }
+                                                    </select>
+                                                </div>
+                                                <div class="col-4">
+                                                    <select name="user[year]" class="form-control custom-select">
+                                                        <option value="">Year</option>
+                                                        @{
+                                                            for (int i = 1900; i < 2021; i++)
+                                                            {
+                                                                <option>@i</option>
+                                                            }
+                                                        }
+                                                    </select>
+                                                </div>
+                                            </div>
+                                    </div>
+
+                                     <div class="col-md-6 mb-4">
+                                            <label class="form-label">Date Started</label>
+                                            <div class="row gutters-xs">
+                                                <div class="col-5">
+                                                    <select name="user[month]" class="form-control custom-select">
+                                                        <option value="">Month</option>
+                                                        <option value="1">January</option>
+                                                        <option value="2">February</option>
+                                                        <option value="3">March</option>
+                                                        <option value="4">April</option>
+                                                        <option value="5">May</option>
+                                                        <option value="6">June</option>
+                                                        <option value="7">July</option>
+                                                        <option value="8">August</option>
+                                                        <option value="9">September</option>
+                                                        <option value="10">October</option>
+                                                        <option value="11">November</option>
+                                                        <option value="12">December</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-3">
+                                                    <select name="user[day]" class="form-control custom-select">
+                                                        <option value="">Day</option>
+                                                        @{
+                                                            for (int i = 1; i <= 31; i++)
+                                                            {
+                                                                <option>@i</option>
+                                                            }
+                                                        }
+                                                    </select>
+                                                </div>
+                                                <div class="col-4">
+                                                    <select name="user[year]" class="form-control custom-select">
+                                                        <option value="">Year</option>
+                                                        @{
+                                                            for (int i = 1900; i < 2021; i++)
+                                                            {
+                                                                <option>@i</option>
+                                                            }
+                                                        }
+                                                    </select>
+                                                </div>
+                                            </div>
+                                    </div>
+                                
+
+                                          <div class="col-md-6 mb-4 pb-2">
+                                        <label class="form-label select-label">Civil Status</label>
                                         <select class="select form-control-lg">
                                             <option value="1" disabled>Choose option</option>
-                                            <option value="2">Subject 1</option>
-                                            <option value="3">Subject 2</option>
-                                            <option value="4">Subject 3</option>
+                                            <option value="2">Single</option>
+                                            <option value="3">Married</option>
+                                            <option value="4">Widowed</option>
                                         </select>
-                                        <label class="form-label select-label">Choose option</label>
+                                    
+
+                                    </div>
+
+                                    <div class="col-md-6 mb-4 pb-2">
+                                        <label class="form-label select-label">Type</label>
+                                        <select class="select form-control-lg">
+                                            <option value="1" disabled>Choose option</option>
+                                            <option value="2">Regular</option>
+                                            <option value="3">Contractual</option>
+
+                                        </select>
 
                                     </div>
                                 </div>
-
-                                <div class="mt-4 pt-2">
-                                    <input class="btn btn-primary btn-lg" type="submit" value="Submit" />
+                                <div class="center">
+                                    <button type="submit" class="btn btn-success">Register</button>
+                                    <button type="submit" class="btn btn-info" onclick="location.href='@Url.Action("LoginType", "Home" )'">Login as Admin</button>
+                                    <button type="submit" class="btn btn-primary" onclick="location.href='@Url.Action("EmpLogin", "Home" )'">Login as Employee</button>
+                                    <a class="btn btn-primary btn-lg btn-block" style="background-color: #55acee"
+                                       role="button" onclick="location.href='@Url.Action("LoginType", "Home" )'">
+                                        <i class="fas fa-chalkboard-teacher me-2"></i> Login as Employee
+                                    </a>
                                 </div>
 
                             </form>
@@ -155,15 +259,8 @@
     <!-- MDB -->
     <script type="text/javascript"
             src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.js">
-
-        $('.datepicker').datepicker({
-               weekdaysShort: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
-               showMonthsShort: true
-           })
-
-
     </script>
-
+    <script src="~/js/site.js" asp-append-version="true"></script>
 
 </body>
 </html>
