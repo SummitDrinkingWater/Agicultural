@@ -20,9 +20,6 @@ $(document).ready(function () {
 });
 
 
-// Data Picker Initialization
-$('.datepicker').datepicker({
-    inline: true
-});
+
 
 
