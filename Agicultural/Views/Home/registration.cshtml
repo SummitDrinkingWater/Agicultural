@@ -76,9 +76,8 @@
                                         </div>
 
                                     </div>
-                                </div>
 
-                                <div class="col-md-6 mb-4">
+                                    <div class="col-md-6 mb-4">
 
                                         <div class="form-outline">
                                             <input type="text" id="lastName" class="form-control form-control-lg" />
@@ -87,39 +86,27 @@
 
                                     </div>
 
-                                <div class="row">
-                                    <div class="col-md-6 mb-4 d-flex align-items-center">
 
-                                        <div class="form-outline datepicker w-100">
-                                            <input type="text" class="form-control form-control-lg" id="birthdayDate" />
-                                            <label for="birthdayDate" class="form-label">Birthdate</label>
+                                    <div class="col-md-6 mb-4">
+
+                                        <div class="form-outline">
+                                            <input type="text" id="lastName" class="form-control form-control-lg" />
+                                            <label class="form-label" for="lastName">Contact Number</label>
                                         </div>
 
                                     </div>
-                                    <div class="col-md-6 mb-4">
 
-                                        <h6 class="mb-2 pb-1">Gender: </h6>
+                                    <div class="col-md-6 mb-4 d-flex align-items-center">
 
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="femaleGender"
-                                                   value="option1" checked />
-                                            <label class="form-check-label" for="femaleGender">Female</label>
-                                        </div>
-
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="maleGender"
-                                                   value="option2" />
-                                            <label class="form-check-label" for="maleGender">Male</label>
-                                        </div>
-
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="otherGender"
-                                                   value="option3" />
-                                            <label class="form-check-label" for="otherGender">Other</label>
+                                        <div class="md-form md-outline input-with-post-icon datepicker" id="customDays">
+                                            <input placeholder="Select date" type="text" id="Customization" class="form-control">
+                                            <label for="Customization">Try me...</label>
+                                            <i class="fas fa-calendar input-prefix" tabindex=0></i>
                                         </div>
 
                                     </div>
                                 </div>
+
 
                                 <div class="row">
                                     <div class="col-md-6 mb-4 pb-2">
@@ -168,6 +155,16 @@
 
     <!-- MDB -->
     <script type="text/javascript"
-            src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.js"></script>
+            src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.js">
+
+        $('.datepicker').datepicker({
+               weekdaysShort: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
+               showMonthsShort: true
+           })
+
+
+    </script>
+
+
 </body>
 </html>
