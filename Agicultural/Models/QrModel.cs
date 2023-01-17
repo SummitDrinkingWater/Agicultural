@@ -1,8 +1,8 @@
 ﻿namespace Agicultural.Models
 {
-	public class QrModel
-	{
-		public string qrmod { get; set; }
-	}
+  public class QrModel
+  {
+    public string qrmod { get; set; }
+  }
 }
 
