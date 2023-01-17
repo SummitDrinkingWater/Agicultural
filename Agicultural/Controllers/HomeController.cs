@@ -53,6 +53,13 @@ namespace Agicultural.Controllers
             return View();
         }
 
+        [HttpPost("[action]"), Route("/registration")]
+        public IActionResult registration()
+        {
+            return View();
+        }
+
+
         [HttpPost("[action]"), Route("/UserPage")]
         public IActionResult UserPage()
         {
