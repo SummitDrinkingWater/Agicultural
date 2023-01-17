@@ -14,17 +14,30 @@ namespace Agicultural.DAO
         {
             //test only do not overthink --> for getting login data from database
 
-            string sql = string.Format(@"select * from employee where id = '" + login.empid + "' and fname = '" + login.password +"'");
+            string sql = string.Format(@"select * from employee where lname = '" + login.username + "' and fname = '" + login.password +"'");
             var count = cont.logins.FromSqlRaw(sql);
-            if (count.Count() > 0)
-                    return "Dashboard";
 
+
+            if (count.Count() > 0)
+                return "Dashboard";
+            else { return "failed"; }
 
             if (login.empid == "emp") return "EmpDashboardPage";
             else if (login.empid == "admin") return "AdminLogin";
             else if (login.empid == "timein") return "Login";
 
             return login.empid is null ? "Login" : login.empid;
+        }
+
+        public string AddStudent(EmployeeModel emp)
+        {
+            string sql = string.Format(@"Insert into employee(fname, lname) 
+                                     values ('{0}', '{1}'')", emp.name, emp.role);
+            int count = cont.Database.ExecuteSqlRaw(sql);
+            if (count > 0)
+                return "Added";
+            else
+                return "Failed";
         }
     }
 }

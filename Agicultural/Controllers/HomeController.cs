@@ -50,8 +50,14 @@ namespace Agicultural.Controllers
       //return RedirectToAction("Login");
       return View(data);
     }
-
-    [HttpPost("[action]"), Route("/Dashboard")]
+        [HttpPost("[action]"), Route("/Create")]
+        public IActionResult Create([FromForm] EmployeeModel emp)
+        {
+            DataAccess.AddStudent(emp);
+            //return RedirectToAction("Login");
+            return View("Dashboard");
+        }
+        [HttpPost("[action]"), Route("/Dashboard")]
     public IActionResult Dashboard()
     {
       return View();

@@ -41,39 +41,39 @@
                              class="img-fluid" alt="Phone image">
                     </div>
                     <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
-                        <form>
-                            <!-- Email input -->
-                            <div class="form-outline mb-4">
-                                <input type="name" id="" class="form-control form-control-lg" />
-                                <label class="form-label" for="">Username</label>
-                            </div>
+                        @*<form>*@
+                        <!-- Email input -->
+                        <div class="form-outline mb-4">
+                            <input type="text" name="username" class="form-control form-control-lg" />
+                            <label class="form-label" for="">Username</label>
+                        </div>
 
-                            <!-- Password input -->
-                            <div class="form-outline mb-4">
-                                <input type="password" id="" class="form-control form-control-lg" />
-                                <label class="form-label" for="">Password</label>
-                            </div>
+                        <!-- Password input -->
+                        <div class="form-outline mb-4">
+                            <input type="password" name="password" class="form-control form-control-lg" />
+                            <label class="form-label" for="">Password</label>
+                        </div>
 
 
 
-                            <!-- Submit button -->
-                            <button type="submit" class="btn btn-primary btn-lg btn-block">Sign in</button>
+                        <!-- Submit button -->
+                        <button type="submit" class="btn btn-primary btn-lg btn-block">Sign in</button>
 
-                            <div class="divider d-flex align-items-center my-4">
-                                <p class="text-center fw-bold mx-3 mb-0 text-muted">OR</p>
-                            </div>
-                            
-                            <a type="submit" class="btn btn-primary btn-lg btn-block" style="background-color: #3b5998"
-                               role="button" onclick="location.href='@Url.Action("registration", "Home" )'">
-                          
-                                <i class="fas fa-clipboard-check me-2"></i> Register Employee
-                            </a>
-                            <a class="btn btn-primary btn-lg btn-block" style="background-color: #55acee" 
-                               role="button" onclick="location.href='@Url.Action("EmpLogin", "Home" )'">
-                                <i class="fas fa-chalkboard-teacher me-2"></i> Login as Employee
-                            </a>
+                        <div class="divider d-flex align-items-center my-4">
+                            <p class="text-center fw-bold mx-3 mb-0 text-muted">OR</p>
+                        </div>
 
-                        </form>
+                        <a type="submit" class="btn btn-primary btn-lg btn-block" style="background-color: #3b5998"
+                           role="button"  onclick="location.href='@Url.Action("registration", "Home" )'">
+
+                            <i class="fas fa-clipboard-check me-2"></i> Register Employee
+                        </a>
+                        <a class="btn btn-primary btn-lg btn-block" style="background-color: #55acee"
+                           role="button" onclick="location.href='@Url.Action("EmpLogin", "Home" )'">
+                            <i class="fas fa-chalkboard-teacher me-2"></i> Login as Employee
+                        </a>
+
+                        @*</form>*@
                     </div>
                 </div>
             </div>
