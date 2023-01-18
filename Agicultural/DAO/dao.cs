@@ -12,21 +12,13 @@ namespace Agicultural.DAO
 
         public string login(LoginModel login)
         {
-            //test only do not overthink --> for getting login data from database
-
-            string sql = string.Format(@"select * from employee where lname = '" + login.username + "' and fname = '" + login.password +"'");
+            string sql = string.Format(@"select * from employee where empid = '" + login.empid + "' and password = '" + login.password +"'");
             var count = cont.logins.FromSqlRaw(sql);
 
-
             if (count.Count() > 0)
-                return "Dashboard";
-            else { return "failed"; }
-
-            if (login.empid == "emp") return "EmpDashboardPage";
-            else if (login.empid == "admin") return "AdminLogin";
-            else if (login.empid == "timein") return "Login";
-
-            return login.empid is null ? "Login" : login.empid;
+                if (login.empid == "admin") return "Dashboard";
+                else return "EmpDashboardPage";
+            else return "LoginType"; 
         }
 
         public string AddEmployee(EmployeeModel emp)
@@ -47,16 +39,12 @@ namespace Agicultural.DAO
         }
 
         public void UpdateEmployee(EmployeeModel employee) {
-            string updatedata = $"update query here";
+            string updatedata = $"Update employee set fname = '{employee.fname}', mname = '{employee.mname}', lname = '{employee.lname}', contact = '{employee.contact}', address = '{employee.address}', civil_status = '{employee.civil_status}', position = '{employee.position}', type = '{employee.type}' where empid = '{employee.empid}'";
             cont.Database.ExecuteSqlRaw(updatedata);
         }
-
+        public void DeleteEmployee(EmployeeModel employee) {
+            string delete = $"Delete from employee where empid = {employee.empid}";
+            cont.Database.ExecuteSqlRaw(delete);
+        }
     }
 }
-//QRCodeGenerator generator = new QRCodeGenerator();
-//var qrdata = generator.CreateQrCode(qr, QRCodeGenerator.ECCLevel.Q);
-
-//var bit = new BitmapByteQRCode(qrdata);
-//var img = bit.GetGraphic(20);
-
-//return Convert.ToBase64String(img);

@@ -8,6 +8,8 @@ namespace Agicultural.Models
     {
         [Column("id")]
         public int id { get; set; }//primary key
+        [Column("empid")]
+        public int empid { get; set; }
         [Column("fname")]
         public string? fname { get; set; }
         [Column("mname")]

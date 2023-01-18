@@ -27,7 +27,8 @@ namespace Agicultural.Controllers
 
         public IActionResult Index()
         {
-            return View("LoginType");
+            //return View("LoginType");
+            return View("MemberPage");
             //return View("scan");
         }
         [HttpPost("[action]"), Route("/LoginType")]
