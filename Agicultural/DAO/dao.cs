@@ -29,9 +29,10 @@ namespace Agicultural.DAO
             return login.empid is null ? "Login" : login.empid;
         }
 
-        public string AddStudent(EmployeeModel emp)
+        public string AddEmployee(EmployeeModel emp)
         {
-            string sql = string.Format(@"Insert into employee(fname, lname) values ('{0}', '{1}'')", emp.name, emp.role); //<<<< query for create
+            string sql = string.Format(@"Insert into employee(fname, mname, lname, age, contact, birthdate, address, civil_status, date_start, position, type) 
+                                        values ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}', '{10}')", emp.fname, emp.mname, emp.lname, emp.age, emp.contact, emp.birthdate, emp.address, emp.civil_status, emp.date_start, emp.position, emp.type); //<<<< query for create
             int count = cont.Database.ExecuteSqlRaw(sql);
             if (count > 0)
                 return "Added";
