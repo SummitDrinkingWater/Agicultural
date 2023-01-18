@@ -29,7 +29,8 @@ namespace Agicultural.Controllers
     {
             //return View("LoginType");
             return View("scan");
-    }
+            //return View("MemberPage");
+        }
     [HttpPost("[action]"), Route("/LoginType")]
     public IActionResult LoginType([FromForm] LoginTypeModel logintype)
     {
@@ -42,6 +43,11 @@ namespace Agicultural.Controllers
 
       return View(logins);
     }
+
+        public string res(string r)
+        {
+            return r;
+        }
 
     [HttpPost("[action]"), Route("/Login")]
     public IActionResult Login([FromForm] LoginModel login)
