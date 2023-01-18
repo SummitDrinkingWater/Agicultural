@@ -80,7 +80,7 @@
 
                                     <div class="form-outline">
                                         <input type="text" id="empid" name="empid" class="form-control form-control-lg" />
-      @*<<---add empid on database *@      W <label class="form-label" for="empid">Employee ID</label>
+      @*<<---add empid on database *@       <label class="form-label" for="empid">Employee ID</label>
                                     </div>
 
                                 </div>
@@ -98,8 +98,8 @@
                                     <div class="col-md-6 mb-4">
 
                                         <div class="form-outline">
-                                            <input type="text" id="lastName" class="form-control form-control-lg" />
-                                            <label class="form-label" for="lastName">Contact Number</label>
+                                            <input type="text" id="contact" name="contact" class="form-control form-control-lg" />
+                                            <label class="form-label" for="contact">Contact Number</label>
                                         </div>
 
                                     </div>
@@ -108,8 +108,8 @@
                                   <div class="col-md-6 mb-4 pb-2">
 
                                         <div class="form-outline">
-                                            <input type="tel" id="phoneNumber" class="form-control form-control-lg" />
-                                            <label class="form-label" for="phoneNumber">Position</label>
+                                            <input type="tel" id="position" name="position" class="form-control form-control-lg" />
+                                            <label class="form-label" for="position">Position</label>
                                         </div>
 
                                     </div>
@@ -128,40 +128,40 @@
                                             <label class="form-label">Date of birth</label>
                                             <div class="row gutters-xs">
                                                 <div class="col-5">
-                                                    <select name="user[month]" class="form-control custom-select">
+                                                    <select name="bdaym" class="form-control custom-select">
                                                         <option value="">Month</option>
-                                                        <option value="1">January</option>
-                                                        <option value="2">February</option>
-                                                        <option value="3">March</option>
-                                                        <option value="4">April</option>
-                                                        <option value="5">May</option>
-                                                        <option value="6">June</option>
-                                                        <option value="7">July</option>
-                                                        <option value="8">August</option>
-                                                        <option value="9">September</option>
+                                                        <option value="01">January</option>
+                                                        <option value="02">February</option>
+                                                        <option value="03">March</option>
+                                                        <option value="04">April</option>
+                                                        <option value="05">May</option>
+                                                        <option value="06">June</option>
+                                                        <option value="07">July</option>
+                                                        <option value="08">August</option>
+                                                        <option value="09">September</option>
                                                         <option value="10">October</option>
                                                         <option value="11">November</option>
                                                         <option value="12">December</option>
                                                     </select>
                                                 </div>
                                                 <div class="col-3">
-                                                    <select name="user[day]" class="form-control custom-select">
+                                                    <select name="bdayd" class="form-control custom-select">
                                                         <option value="">Day</option>
                                                         @{
                                                             for (int i = 1; i <= 31; i++)
                                                             {
-                                                                <option>@i</option>
+                                                                <option value="@i">@i</option>
                                                             }
                                                         }
                                                     </select>
                                                 </div>
                                                 <div class="col-4">
-                                                    <select name="user[year]" class="form-control custom-select">
+                                                    <select name="bdayy" class="form-control custom-select">
                                                         <option value="">Year</option>
                                                         @{
                                                             for (int i = 1900; i < 2021; i++)
                                                             {
-                                                                <option>@i</option>
+                                                                <option value="@i">@i</option>
                                                             }
                                                         }
                                                     </select>
@@ -173,40 +173,40 @@
                                             <label class="form-label">Date Started</label>
                                             <div class="row gutters-xs">
                                                 <div class="col-5">
-                                                    <select name="user[month]" class="form-control custom-select">
+                                                    <select name="dstartm" class="form-control custom-select">
                                                         <option value="">Month</option>
-                                                        <option value="1">January</option>
-                                                        <option value="2">February</option>
-                                                        <option value="3">March</option>
-                                                        <option value="4">April</option>
-                                                        <option value="5">May</option>
-                                                        <option value="6">June</option>
-                                                        <option value="7">July</option>
-                                                        <option value="8">August</option>
-                                                        <option value="9">September</option>
+                                                        <option value="01">January</option>
+                                                        <option value="02">February</option>
+                                                        <option value="03">March</option>
+                                                        <option value="04">April</option>
+                                                        <option value="05">May</option>
+                                                        <option value="06">June</option>
+                                                        <option value="07">July</option>
+                                                        <option value="08">August</option>
+                                                        <option value="09">September</option>
                                                         <option value="10">October</option>
                                                         <option value="11">November</option>
                                                         <option value="12">December</option>
                                                     </select>
                                                 </div>
                                                 <div class="col-3">
-                                                    <select name="user[day]" class="form-control custom-select">
+                                                    <select name="dstartd" class="form-control custom-select">
                                                         <option value="">Day</option>
                                                         @{
                                                             for (int i = 1; i <= 31; i++)
                                                             {
-                                                                <option>@i</option>
+                                                                <option value="@i">@i</option>
                                                             }
                                                         }
                                                     </select>
                                                 </div>
                                                 <div class="col-4">
-                                                    <select name="user[year]" class="form-control custom-select">
+                                                    <select name="dstarty" class="form-control custom-select">
                                                         <option value="">Year</option>
                                                         @{
                                                             for (int i = 1900; i < 2021; i++)
                                                             {
-                                                                <option>@i</option>
+                                                                <option value="@i">@i</option>
                                                             }
                                                         }
                                                     </select>
@@ -217,11 +217,11 @@
 
                                           <div class="col-md-6 mb-4 pb-2">
                                         <label class="form-label select-label">Civil Status</label>
-                                        <select class="select form-control-lg">
-                                            <option value="1" disabled>Choose option</option>
-                                            <option value="2">Single</option>
-                                            <option value="3">Married</option>
-                                            <option value="4">Widowed</option>
+                                        <select class="select form-control-lg" name="civil_status">
+                                            <option value="Did'nt Choosed" disabled>Choose option</option>
+                                            <option value="Single">Single</option>
+                                            <option value="Married">Married</option>
+                                            <option value="Widowed">Widowed</option>
                                         </select>
                                     
 
@@ -229,10 +229,10 @@
 
                                     <div class="col-md-6 mb-4 pb-2">
                                         <label class="form-label select-label">Type</label>
-                                        <select class="select form-control-lg">
-                                            <option value="1" disabled>Choose option</option>
-                                            <option value="2">Regular</option>
-                                            <option value="3">Contractual</option>
+                                        <select class="select form-control-lg" name="type">
+                                            <option value="Did'nt Choosed'" disabled>Choose option</option>
+                                            <option value="Regular">Regular</option>
+                                            <option value="Contractual">Contractual</option>
 
                                         </select>
 

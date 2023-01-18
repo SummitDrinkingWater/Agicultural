@@ -12,19 +12,25 @@ namespace Agicultural.DAO
 
         public string login(LoginModel login)
         {
-            string sql = string.Format(@"select * from employee where empid = '" + login.empid + "' and password = '" + login.password +"'");
+            
+            //string sql = string.Format(@"select * from employee where empid = '" + login.empid + "' and password = '" + login.password +"'");
+            string sql = string.Format(@"SELECT dbo.login.password, dbo.login.id
+                                        FROM dbo.employee INNER JOIN
+                                         dbo.login ON dbo.employee.empid = dbo.login.id  where login.id = '"+login.empid+"' and login.password = '"+login.password+"'");
             var count = cont.logins.FromSqlRaw(sql);
-
+            int c = count.Count();
             if (count.Count() > 0)
-                if (login.empid == "admin") return "Dashboard";
+                if (login.empid == "admin") 
+                    return "Dashboard";
                 else return "EmpDashboardPage";
             else return "LoginType"; 
         }
 
         public string AddEmployee(EmployeeModel emp)
         {
-            string sql = string.Format(@"Insert into employee(fname, mname, lname, age, contact, birthdate, address, civil_status, date_start, position, type) 
-                                        values ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}', '{10}')", emp.fname, emp.mname, emp.lname, emp.age, emp.contact, emp.birthdate, emp.address, emp.civil_status, emp.date_start, emp.position, emp.type); //<<<< query for create
+
+            string sql = string.Format(@"Insert into employee(fname, mname, lname, age, contact, birthdate, address, civil_status, date_start, position, type, empid) 
+                                        values ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}', '{10}', '{11}')", emp.fname, emp.mname, emp.lname, emp.age, emp.contact, emp.birthdate, emp.address, emp.civil_status, emp.date_start, emp.position, emp.type, emp.empid); //<<<< query for create
             int count = cont.Database.ExecuteSqlRaw(sql);
             if (count > 0)
                 return "Added";
