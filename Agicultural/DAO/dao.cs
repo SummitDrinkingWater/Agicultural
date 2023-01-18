@@ -28,16 +28,30 @@ namespace Agicultural.DAO
 
         public string AddEmployee(EmployeeModel emp)
         {
-
+            AddQr(vGenQr(emp.empid), emp.empid);
             string sql = string.Format(@"Insert into employee(fname, mname, lname, age, contact, birthdate, address, civil_status, date_start, position, type, empid) 
                                         values ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}', '{10}', '{11}')", emp.fname, emp.mname, emp.lname, emp.age, emp.contact, emp.birthdate, emp.address, emp.civil_status, emp.date_start, emp.position, emp.type, emp.empid); //<<<< query for create
             int count = cont.Database.ExecuteSqlRaw(sql);
+
             if (count > 0)
                 return "Added";
             else
                 return "Failed";
         }
-
+        public string AddQr(string qr, string fid) {
+            string qrsql = string.Format(@"Insert into qrdb(qrv, f_id) values ('{0}', '{1}') 
+                                        ", qr, fid);
+            int count = cont.Database.ExecuteSqlRaw(qrsql);
+            if (count > 0) return "Added"; else return "";
+        }
+        public string vGenQr(string qr)
+        {
+            QRCodeGenerator generate = new QRCodeGenerator();
+            var qrdata = generate.CreateQrCode(qr, QRCodeGenerator.ECCLevel.Q);
+            var bit = new BitmapByteQRCode(qrdata);
+            var img = bit.GetGraphic(20);
+            return Convert.ToBase64String(img);
+        }
         public List<EmployeeModel> GetEmployee(EmployeeModel model)
         {
             var getdata = cont.employees.FromSqlRaw(@"select * from employee").ToList();

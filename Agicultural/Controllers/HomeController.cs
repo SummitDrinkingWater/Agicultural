@@ -44,7 +44,7 @@ namespace Agicultural.Controllers
             return View(logins);
         }
 
-        [HttpPost("[action]"), Route("/Login")]
+        [HttpPost("[action]"), Route("/Login")] //<<--- functional
         public IActionResult Login([FromForm] LoginModel login)
         {
             var data = DataAccess.login(login);
@@ -52,7 +52,7 @@ namespace Agicultural.Controllers
             //return RedirectToAction("Login");
             return View(data);
         }
-        [HttpPost("[action]"), Route("/Create")]
+        [HttpPost("[action]"), Route("/Create")] //<<--- functional
         public IActionResult Create([FromForm] EmployeeModel emp)
         {
             DataAccess.AddEmployee(emp);
