@@ -30,7 +30,7 @@ namespace Agicultural.Controllers
             //return View("LoginType");
             //return View("MemberPage");
             //return View("scan");
-            return View("registration");
+            return View("EmpDashboardPage");
         }
         [HttpPost("[action]"), Route("/LoginType")]
         public IActionResult LoginType([FromForm] LoginTypeModel logintype)
@@ -111,6 +111,13 @@ namespace Agicultural.Controllers
 
         [HttpPost("[action]"), Route("/OTP")]
         public IActionResult OTP()
+        {
+            
+            return View();
+        }
+
+        [HttpPost("[action]"), Route("/EmpDashboardPage")]
+        public IActionResult EmpDashboardPage()
         {
 
             return View();
