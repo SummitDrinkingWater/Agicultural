@@ -48,9 +48,17 @@ namespace Agicultural.Controllers
         public IActionResult Login([FromForm] LoginModel login)
         {
             var data = DataAccess.login(login);
-
-            //return RedirectToAction("Login");
-            return View(data);
+           
+            if (data == "Dashboard")
+            {
+                return View(data, DataAccess.GetAllEmployee());
+            }
+            else if (data == "EmpDashboardPage")//<<<---- next
+            {
+                return View(data, DataAccess.GetTimeLog());
+            }
+            else
+            return View("LoginType");
         }
         [HttpPost("[action]"), Route("/Create")] //<<--- functional
         public IActionResult Create([FromForm] EmployeeModel emp)
@@ -82,7 +90,6 @@ namespace Agicultural.Controllers
         [HttpPost("[action]"), Route("/MemberPage")]
         public IActionResult MemberPage()
         {
-
 
             return View();
         }

@@ -1,7 +1,9 @@
 ﻿using Agicultural.Context;
 using Agicultural.Models;
 using Microsoft.EntityFrameworkCore;
+using NuGet.Protocol.Plugins;
 using QRCoder;
+using System.Runtime.CompilerServices;
 
 namespace Agicultural.DAO
 {
@@ -12,8 +14,6 @@ namespace Agicultural.DAO
 
         public string login(LoginModel login)
         {
-            
-            //string sql = string.Format(@"select * from employee where empid = '" + login.empid + "' and password = '" + login.password +"'");
             string sql = string.Format(@"SELECT dbo.login.password, dbo.login.id
                                         FROM dbo.employee INNER JOIN
                                          dbo.login ON dbo.employee.empid = dbo.login.id  where login.id = '"+login.empid+"' and login.password = '"+login.password+"'");
@@ -28,7 +28,7 @@ namespace Agicultural.DAO
 
         public string AddEmployee(EmployeeModel emp)
         {
-            AddQr(vGenQr(emp.empid), emp.empid);
+            AddQr(vGenQr(emp.empid.ToString()), emp.empid.ToString());
             string sql = string.Format(@"Insert into employee(fname, mname, lname, age, contact, birthdate, address, civil_status, date_start, position, type, empid) 
                                         values ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}', '{10}', '{11}')", emp.fname, emp.mname, emp.lname, emp.age, emp.contact, emp.birthdate, emp.address, emp.civil_status, emp.date_start, emp.position, emp.type, emp.empid); //<<<< query for create
             int count = cont.Database.ExecuteSqlRaw(sql);
@@ -39,8 +39,7 @@ namespace Agicultural.DAO
                 return "Failed";
         }
         public string AddQr(string qr, string fid) {
-            string qrsql = string.Format(@"Insert into qrdb(qrv, f_id) values ('{0}', '{1}') 
-                                        ", qr, fid);
+            string qrsql = string.Format(@"Insert into qrdb(qrv, f_id) values ('{0}', '{1}')", qr, fid);
             int count = cont.Database.ExecuteSqlRaw(qrsql);
             if (count > 0) return "Added"; else return "";
         }
@@ -52,7 +51,7 @@ namespace Agicultural.DAO
             var img = bit.GetGraphic(20);
             return Convert.ToBase64String(img);
         }
-        public List<EmployeeModel> GetEmployee(EmployeeModel model)
+        public List<EmployeeModel> GetAllEmployee()
         {
             var getdata = cont.employees.FromSqlRaw(@"select * from employee").ToList();
             return getdata;
@@ -66,5 +65,19 @@ namespace Agicultural.DAO
             string delete = $"Delete from employee where empid = {employee.empid}";
             cont.Database.ExecuteSqlRaw(delete);
         }
+        public List<TimeInModel> GetTimeLog()
+        {
+            var gettimelog = cont.timelog.FromSqlRaw(@"select * from timedb from employee inner join 
+                                                        timedb.empid on employee.empid = timedb.empid").ToList();
+            return gettimelog;
+        }
+        //public List<TimeInModel> GetTimeLogByDate()
+        //{ 
+        
+        //}
+        //public List<TimeInModel> GetTimeLogByRange()
+        //{ 
+            
+        //}
     }
 }
