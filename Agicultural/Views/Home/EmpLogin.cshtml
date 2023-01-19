@@ -24,52 +24,57 @@
 </head>
 
 <body>
-    <section class="vh-100" style="background-color: rgb(240, 240, 240);">
-        <div class="container py-5 h-100">
-            <div class="row d-flex justify-content-center align-items-center h-100">
-                <div class="col-12 col-md-8 col-lg-6 col-xl-5">
-                    <div class="card shadow-2-strong" style="border-radius: 1rem;">
-                        <div class="card-body p-5 text-center">
+    <form asp-controller="Home" asp-action="Login" medthod="post">
 
-                            <h3 class="mb-5">Employee Log in</h3>
-                            <form asp-controller="Home" asp-action="Login" medthod="post">
-                            <div class="form-outline mb-4">
-                                <input type="text" id="username" name="username" class="form-control form-control-lg" />
+        <section class="vh-100" style="background-color: rgb(240, 240, 240);">
+            <div class="container py-5 h-100">
+                <div class="row d-flex justify-content-center align-items-center h-100">
+                    <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                        <div class="card shadow-2-strong" style="border-radius: 1rem;">
+                            <div class="card-body p-5 text-center">
+
+                                <h3 class="mb-5">Employee Log in</h3>
+                                <div class="form-outline mb-4">
+                                    <input type="text" id="username" name="username" class="form-control form-control-lg" />
                                     <label class="form-label" for="username">Employee ID</label>
-                            </div>
+                                </div>
 
-                            <div class="form-outline mb-4">
+                                <div class="form-outline mb-4">
                                     <input type="password" id="password" name="password" class="form-control form-control-lg" />
                                     <label class="form-label" for="password">Password</label>
-                            </div>
+                                </div>
 
-                            <!-- Checkbox -->
-@*                            <div class="form-check d-flex justify-content-start mb-4">
+                                <!-- Checkbox -->
+                                @*                            <div class="form-check d-flex justify-content-start mb-4">
                                 <input class="form-check-input" type="checkbox" value="" id="form1Example3" />
                                 <label class="form-check-label" for="form1Example3"> Remember password </label>
-                            </div>*@
+                                </div>*@
 
                                 <button class="btn btn-primary btn-lg btn-block" name="empid" type="submit" value="emp">Login</button>
 
-                            <hr class="my-4">
-                            <p class="text-center">OR</p>
+                                <hr class="my-4">
+                                <p class="text-center">OR</p>
 
-                            <button class="btn btn-lg btn-block btn-primary" style="background-color: #dd4b39;"
-                                    type="submit" onclick="location.href='@Url.Action("LoginType", "Home" )'">
-                                @*<i class="fab fa-google me-2"></i>*@ Login as Admin
-                            </button>
-                            <button class="btn btn-lg btn-block btn-primary mb-2" style="background-color: #3b5998;"
-                                        type="submit" onclick="location.href='@Url.Action("registration", "Home" )'">
-                                @*<i class="fab fa-facebook-f me-2"></i>*@ Register Employee
-                            </button>
-                            </form>
+                                <a class="btn btn-lg btn-block btn-primary" style="background-color: #dd4b39;"
+                                        value="admin" role="button" onclick="location.href='@Url.Action("LoginType", "Home" )'">
+                                    @*<i class="fab fa-google me-2"></i>*@ Login as Admin
+                                </a>
+                                <a class="btn btn-lg btn-block btn-primary mb-2" style="background-color: #3b5998;"
+                                          role="button" onclick="location.href='@Url.Action("registration", "Home" )'">
+                                    @*<i class="fab fa-facebook-f me-2"></i>*@ Register Employee
+                                </a>
+                                @*<a class="btn btn-primary btn-lg btn-block" style="background-color: #55acee"
+                                         role="button" onclick="location.href='@Url.Action("EmpLogin", "Home" )'">
+                                    <i class="fas fa-chalkboard-teacher me-2"></i> Login as Employee
+                                </a>*@
+                            </div>
                         </div>
-                        
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </form>
+
 
     <!-- MDB -->
     <script type="text/javascript"

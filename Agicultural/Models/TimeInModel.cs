@@ -1,7 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Agicultural.Models
 {
+    [Keyless]
     public class TimeInModel
     {
         [Column("timein")]

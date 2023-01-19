@@ -28,13 +28,14 @@ namespace Agicultural.DAO
 
         public string AddEmployee(EmployeeModel emp)
         {
-            AddQr(vGenQr(emp.empid.ToString()), emp.empid.ToString());
+            string qrcode = vGenQr(emp.empid.ToString());
+            AddQr(qrcode, emp.empid.ToString());
             string sql = string.Format(@"Insert into employee(fname, mname, lname, age, contact, birthdate, address, civil_status, date_start, position, type, empid) 
                                         values ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}', '{10}', '{11}')", emp.fname, emp.mname, emp.lname, emp.age, emp.contact, emp.birthdate, emp.address, emp.civil_status, emp.date_start, emp.position, emp.type, emp.empid); //<<<< query for create
             int count = cont.Database.ExecuteSqlRaw(sql);
 
             if (count > 0)
-                return "Added";
+                return qrcode;
             else
                 return "Failed";
         }

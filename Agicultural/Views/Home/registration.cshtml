@@ -252,8 +252,8 @@
                                     <button type="submit" class="btn btn-primary" onclick="location.href='@Url.Action("EmpLogin", "Home" )'">Login as Employee</button>*@
                                 </div>
                                     <div class="d-flex justify-content-end">
-                                        <button type="submit" class="btn btn-info" onclick="location.href='@Url.Action("LoginType", "Home" )'">Login as Admin</button>
-                                        <button type="submit" class="btn btn-primary ms-2" onclick="location.href='@Url.Action("EmpLogin", "Home" )'">Login as Employee</button>
+                                        <button type="submit" class="btn btn-info"  name="admin" value="admin" onclick="location.href='@Url.Action("LoginType", "Home")'">Login as Admin</button>
+                                        <button type="submit" class="btn btn-primary ms-2" value="emp" onclick="location.href='@Url.Action("EmpLogin", "Home" )'">Login as Employee</button>
                                     </div>
 
                             </form>

@@ -27,22 +27,22 @@ namespace Agicultural.Controllers
 
         public IActionResult Index()
         {
-            //return View("LoginType");
+            return View("LoginType");
             //return View("MemberPage");
             //return View("scan");
-            return View("EmpDashboardPage");
+            //return View("EmpDashboardPage");
         }
         [HttpPost("[action]"), Route("/LoginType")]
         public IActionResult LoginType([FromForm] LoginTypeModel logintype)
         {
 
-            string logins = string.Empty;
+            //string logins = string.Empty;         Do not delete
+            //if (logintype.employee is "emp") logins = "EmpLogin";
+            //else if (logintype.admin is "admin") logins = "LoginType";
+            //else if (logintype.timein is "timein") logins = "Login";
+            //return View(logins);
 
-            if (logintype.employee is "emp") logins = "EmpLogin";
-            else if (logintype.admin is "admin") logins = "AdminLogin";
-            else if (logintype.timein is "timein") logins = "Login";
-
-            return View(logins);
+            return View();
         }
 
         [HttpPost("[action]"), Route("/Login")] //<<--- functional
@@ -64,10 +64,29 @@ namespace Agicultural.Controllers
         [HttpPost("[action]"), Route("/Create")] //<<--- functional
         public IActionResult Create([FromForm] EmployeeModel emp)
         {
-            DataAccess.AddEmployee(emp);
-            return View("LoginType");
-        }
+           DataAccess.AddEmployee(emp);
+            ViewData["d"] = GenQr(emp.empid);
 
+            return View("viewQr");
+        }
+        [HttpPost("[action]"), Route("/viewQr")]
+        public IActionResult viewQr()
+        {
+            return View();
+        }
+        public string GenQr(string qr)
+        {
+            QRCodeGenerator generate = new QRCodeGenerator();
+            var qrdata = generate.CreateQrCode(qr, QRCodeGenerator.ECCLevel.Q);
+            var bit = new BitmapByteQRCode(qrdata);
+            var img = bit.GetGraphic(20);
+            return Convert.ToBase64String(img);
+        }
+        [HttpPost]
+        public string Jav([FromBody] QrModel dd)
+        {
+            return GenQr(dd.qrmod);
+        }
         [HttpPost("[action]"), Route("/Dashboard")]
         public IActionResult Dashboard()
         {
@@ -130,19 +149,7 @@ namespace Agicultural.Controllers
             return View();
         }
 
-        public string GenQr(string qr)
-        {
-            QRCodeGenerator generate = new QRCodeGenerator();
-            var qrdata = generate.CreateQrCode(qr, QRCodeGenerator.ECCLevel.Q);
-            var bit = new BitmapByteQRCode(qrdata);
-            var img = bit.GetGraphic(20);
-            return Convert.ToBase64String(img);
-        }
-        [HttpPost]
-        public string Jav([FromBody] QrModel dd)
-        {
-            return GenQr(dd.qrmod);
-        }
+       
         //============================================================== Do not edit below
         public IActionResult Privacy()
         {
