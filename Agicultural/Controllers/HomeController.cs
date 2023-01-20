@@ -27,8 +27,18 @@ namespace Agicultural.Controllers
 
         public IActionResult Index()
         {
+            ViewData["d"] = GenQr("qweasdzxc");
+            
+            List<LoginModel> ww = new List<LoginModel> {
+                new LoginModel { empid = "111", username = "qqq", password="qwe"},
+                new LoginModel { empid = "222", username = "www", password="qwe"},
+                new LoginModel { empid = "333", username = "eee", password="qwe"},
+                new LoginModel { empid = "444", username = "rrr", password="qwe"},
+                new LoginModel { empid = "555", username = "ttt", password="qwe"},
+            };
+            //return View("viewQr");
             return View("LoginType");
-            //return View("MemberPage");
+            //return View("MemberPage", qq);
             //return View("scan");
             //return View("EmpDashboardPage");
         }
@@ -65,13 +75,14 @@ namespace Agicultural.Controllers
         public IActionResult Create([FromForm] EmployeeModel emp)
         {
            DataAccess.AddEmployee(emp);
-            ViewData["d"] = GenQr(emp.empid);
+           ViewData["d"] = GenQr(emp.empid);
 
             return View("viewQr");
         }
         [HttpPost("[action]"), Route("/viewQr")]
         public IActionResult viewQr()
         {
+
             return View();
         }
         public string GenQr(string qr)
@@ -163,3 +174,77 @@ namespace Agicultural.Controllers
         }
     }
 }
+//List<EmployeeModel> qq = new List<EmployeeModel> {
+//                  new EmployeeModel {
+//                      empid = "123123",
+//                      fname = "John",
+//                      mname = "D",
+//                      lname = "Strong",
+//                      age = 21,
+//                      contact = "09090909",
+//                      bdayy = "1999",
+//                      bdaym = "June",
+//                      bdayd = "1",
+//                      address = "Tintay",
+//                      civil_status = "Alone",
+//                      dstartd = "1",
+//                      dstartm = "January",
+//                      dstarty = "1122",
+//                      position = "Dogstyle",
+//                      type = "emp"
+//                  },
+//                  new EmployeeModel {
+//                      empid = "123123",
+//                      fname = "John",
+//                      mname = "D",
+//                      lname = "Strong",
+//                      age = 21,
+//                      contact = "09090909",
+//                      bdayy = "1999",
+//                      bdaym = "June",
+//                      bdayd = "1",
+//                      address = "Tintay",
+//                      civil_status = "Alone",
+//                      dstartd = "1",
+//                      dstartm = "January",
+//                      dstarty = "1122",
+//                      position = "Dogstyle",
+//                      type = "emp"
+//                  },
+//                  new EmployeeModel {
+//                      empid = "123123",
+//                      fname = "John",
+//                      mname = "D",
+//                      lname = "Strong",
+//                      age = 21,
+//                      contact = "09090909",
+//                      bdayy = "1999",
+//                      bdaym = "June",
+//                      bdayd = "1",
+//                      address = "Tintay",
+//                      civil_status = "Alone",
+//                      dstartd = "1",
+//                      dstartm = "January",
+//                      dstarty = "1122",
+//                      position = "Dogstyle",
+//                      type = "emp"
+//                  },
+//                  new EmployeeModel {
+//                      empid = "123123",
+//                      fname = "John",
+//                      mname = "D",
+//                      lname = "Strong",
+//                      age = 21,
+//                      contact = "09090909",
+//                      bdayy = "1999",
+//                      bdaym = "June",
+//                      bdayd = "1",
+//                      address = "Tintay",
+//                      civil_status = "Alone",
+//                      dstartd = "1",
+//                      dstartm = "January",
+//                      dstarty = "1122",
+//                      position = "Dogstyle",
+//                      type = "emp"
+//                  }
+//            };
