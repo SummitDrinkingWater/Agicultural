@@ -1,15 +1,16 @@
-﻿@{
+﻿@model List<TimeInModel>
+@{
     ViewData["Title"] = "EmpDashboardPage";
     Layout = null;
 }
-<!DOCTYPE html>
+@*<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-<link rel="stylesheet" href="~/Agicultural.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Agicultural.styles.css" asp-append-version="true" />
 </head>
 <style>
     .fixTableHead {
@@ -33,187 +34,220 @@
     }
 </style>
 <body>
-<div class="row">
+    <div class="row">
         <div class="col-10" style="padding-top: 100px; margin: 0 auto;">
-        <div class="fixTableHead">
+            <div class="fixTableHead">
                 <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th scope="col">Name</th>
-                        <th scope="col">Age</th>
-                        <th scope="col">Contact</th>
-                        <th scope="col">Birthdate</th>
-                        <th scope="col">Address</th>
-                        <th scope="col">Civil Status</th>
-                        <th scope="col">Date Hired</th>
-                        <th scope="col">Position</th>
-                        <th scope="col">Type</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>mdo</td>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>mdo</td>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>mdo</td>
-                    </tr>
-                    <tr>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>mdo</td>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>mdo</td>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>mdo</td>
-                    </tr>
-                    <tr>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>mdo</td>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>mdo</td>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>mdo</td>
-                    </tr>
-                    <tr>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>mdo</td>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>mdo</td>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>mdo</td>
-                    </tr>
-                    <tr>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>mdo</td>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>mdo</td>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>mdo</td>
-                    </tr>
-                    <tr>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>mdo</td>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>mdo</td>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>mdo</td>
-                    </tr>
-                    <tr>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>mdo</td>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>mdo</td>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>mdo</td>
-                    </tr>
-                    <tr>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>mdo</td>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>mdo</td>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>mdo</td>
-                    </tr>
-                    <tr>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>mdo</td>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>mdo</td>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>mdo</td>
-                    </tr>
-                    <tr>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>mdo</td>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>mdo</td>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>mdo</td>
-                    </tr>
-                    <tr>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>mdo</td>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>mdo</td>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>mdo</td>
-                    </tr>
-                    <tr>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>mdo</td>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>mdo</td>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>mdo</td>
-                    </tr>
-                    <tr>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>mdo</td>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>mdo</td>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>mdo</td>
-                    </tr>
-                    <tr>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>mdo</td>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>mdo</td>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>mdo</td>
-                    </tr>
-                </tbody>
-            </table>
+                    <thead>
+                        <tr>
+                            <th scope="col">Time in</th>
+                            <th scope="col">Time out</th>
+                            <th scope="col">Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var s in Model)
+                        {
+                            <tr>
+                                <td>@s.timein</td>
+                                <td>@s.timeout</td>
+                                <td>@s.date</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
 
+            </div>
         </div>
     </div>
-</div>
-<script src="~/lib/jquery/dist/jquery.min.js"></script>
-<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-<script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
 
 </body>
+</html>*@
+
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="Content-Language" content="en">
+    <meta name="msapplication-TileColor" content="#2d89ef">
+    <meta name="theme-color" content="#4188c9">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" type="image/x-icon" href="./favicon.ico">
+    <!-- Generated: 2018-04-06 16:33:39 +0200 -->
+    <title>Empty page - tabler.github.io - a responsive, flat and full featured admin template</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,500,500i,600,600i,700,700i&amp;subset=latin-ext">
+    <script src="./assets/js/require.min.js"></script>
+    <script>requirejs.config({
+            baseUrl: '.'
+        });</script>
+    <!-- Dashboard Core -->
+    <link href="./assets/css/dashboard.css" rel="stylesheet">
+    <script src="./assets/js/dashboard.js"></script>
+    <!-- c3.js Charts Plugin -->
+    <link href="./assets/plugins/charts-c3/plugin.css" rel="stylesheet">
+    <script src="./assets/plugins/charts-c3/plugin.js"></script>
+    <!-- Google Maps Plugin -->
+    <link href="./assets/plugins/maps-google/plugin.css" rel="stylesheet">
+    <script src="./assets/plugins/maps-google/plugin.js"></script>
+    <!-- Input Mask Plugin -->
+    <script src="./assets/plugins/input-mask/plugin.js"></script>
+    <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="jquery" src="./assets/js/vendors/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="bootstrap" src="./assets/js/vendors/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="core" src="./assets/js/core.js"></script>
+</head>
+<style>
+    .fixTableHead {
+        overflow-y: auto;
+        height: 75vh;
+    }
+
+        .fixTableHead thead th {
+            position: sticky;
+            background-color: white;
+            top: 0;
+        }
+
+    th,
+    td {
+        padding: 8px 15px;
+    }
+
+    th {
+        background: #ABDD93;
+    }
+</style>
+<body class="" data-new-gr-c-s-check-loaded="14.1094.0" data-gr-ext-installed="">
+    <div class="page">
+        <div class="page-main">
+            <div class="header py-6">
+                <div class="container">
+                    <div class="d-flex">
+
+                        <div class="d-flex order-lg-2 ml-auto">
+
+                            <div class="dropdown d-none d-md-flex">
+
+                                <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+                                    <a href="#" class="dropdown-item d-flex">
+                                        <span class="avatar mr-3 align-self-center" style="background-image: url(demo/faces/male/41.jpg)"></span>
+                                        <div>
+                                            <strong>Nathan</strong> pushed new commit: Fix page load performance issue.
+                                            <div class="small text-muted">10 minutes ago</div>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="dropdown-item d-flex">
+                                        <span class="avatar mr-3 align-self-center" style="background-image: url(demo/faces/female/1.jpg)"></span>
+                                        <div>
+                                            <strong>Alice</strong> started new task: Tabler UI design.
+                                            <div class="small text-muted">1 hour ago</div>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="dropdown-item d-flex">
+                                        <span class="avatar mr-3 align-self-center" style="background-image: url(demo/faces/female/18.jpg)"></span>
+                                        <div>
+                                            <strong>Rose</strong> deployed new version of NodeJS REST Api V3
+                                            <div class="small text-muted">2 hours ago</div>
+                                        </div>
+                                    </a>
+                                    <div class="dropdown-divider"></div>
+                                    <a href="#" class="dropdown-item text-center text-muted-dark">Mark all as read</a>
+                                </div>
+                            </div>
+                            <div class="dropdown">
+
+                                <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#" class="header-toggler d-lg-none ml-3 ml-lg-0" data-toggle="collapse" data-target="#headerMenuCollapse">
+                            <span class="header-toggler-icon"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+                <div class="col-8" style="padding-top: 30px; margin: 0 auto;">
+                    <div class="fixTableHead">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Time in</th>
+                                    <th scope="col">Time out</th>
+                                    <th scope="col">Date</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var s in Model)
+                                {
+                                    <tr>
+                                        <td>@s.timein</td>
+                                        <td>@s.timeout</td>
+                                        <td>@s.date</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            @*code here*@
+        </div>
+        <div class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <div class="row">
+                            <div class="col-6 col-md-3">
+                                <ul class="list-unstyled mb-0">
+                                    <li><a href="#">First link</a></li>
+                                    <li><a href="#">Second link</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <ul class="list-unstyled mb-0">
+                                    <li><a href="#">Third link</a></li>
+                                    <li><a href="#">Fourth link</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <ul class="list-unstyled mb-0">
+                                    <li><a href="#">Fifth link</a></li>
+                                    <li><a href="#">Sixth link</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <ul class="list-unstyled mb-0">
+                                    <li><a href="#">Other link</a></li>
+                                    <li><a href="#">Last link</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 mt-4 mt-lg-0">
+                        Premium and Open Source dashboard template with responsive and high quality UI. For Free!
+                    </div>
+                </div>
+            </div>
+        </div>
+        @*<footer class="footer">
+                <div class="container">
+                    <div class="row align-items-center flex-row-reverse">
+
+                    </div>
+                </div>
+            </footer>*@
+    </div>
+
+</body>
+<grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration>
 </html>

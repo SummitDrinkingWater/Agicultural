@@ -27,7 +27,7 @@ namespace Agicultural.Controllers
 
         public IActionResult Index()
         {
-            ViewData["d"] = GenQr("qweasdzxc");
+            //ViewData["d"] = GenQr("fuckyouasdsadasdasdasomuch");
             
             List<LoginModel> ww = new List<LoginModel> {
                 new LoginModel { empid = "111", username = "qqq", password="qwe"},
@@ -37,10 +37,13 @@ namespace Agicultural.Controllers
                 new LoginModel { empid = "555", username = "ttt", password="qwe"},
             };
             //return View("viewQr");
-            return View("LoginType");
+            //return View("LoginType");
             //return View("MemberPage", qq);
             //return View("scan");
-            //return View("EmpDashboardPage");
+            //var data = EmployeeDataExample();
+            //return View("EmpDashboardPage", data);
+            //var data = TimeLogDataExample();
+            return View("EmpDashboardPage");
         }
         [HttpPost("[action]"), Route("/LoginType")]
         public IActionResult LoginType([FromForm] LoginTypeModel logintype)
@@ -59,7 +62,6 @@ namespace Agicultural.Controllers
         public IActionResult Login([FromForm] LoginModel login)
         {
             var data = DataAccess.login(login);
-           
             if (data == "Dashboard")
             {
                 return View(data, DataAccess.GetAllEmployee());
@@ -156,7 +158,7 @@ namespace Agicultural.Controllers
         [HttpPost("[action]"), Route("/EmpDashboardPage")]
         public IActionResult EmpDashboardPage()
         {
-
+            
             return View();
         }
 
@@ -172,79 +174,359 @@ namespace Agicultural.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+        public List<EmployeeModel> EmployeeDataExample()
+        {
+            List<EmployeeModel> qq = new List<EmployeeModel> {
+                              new EmployeeModel {
+                                  empid = "123123",
+                                  fname = "John",
+                                  mname = "D",
+                                  lname = "Strong",
+                                  age = 21,
+                                  contact = "09090909",
+                                  bdayy = "1999",
+                                  bdaym = "June",
+                                  bdayd = "1",
+                                  address = "Tintay",
+                                  civil_status = "Alone",
+                                  dstartd = "1",
+                                  dstartm = "January",
+                                  dstarty = "1122",
+                                  position = "Dogstyle",
+                                  type = "emp"
+                              },
+                              new EmployeeModel {
+                                  empid = "123123",
+                                  fname = "John",
+                                  mname = "D",
+                                  lname = "Strong",
+                                  age = 21,
+                                  contact = "09090909",
+                                  bdayy = "1999",
+                                  bdaym = "June",
+                                  bdayd = "1",
+                                  address = "Tintay",
+                                  civil_status = "Alone",
+                                  dstartd = "1",
+                                  dstartm = "January",
+                                  dstarty = "1122",
+                                  position = "Dogstyle",
+                                  type = "emp"
+                              },
+                              new EmployeeModel {
+                                  empid = "123123",
+                                  fname = "John",
+                                  mname = "D",
+                                  lname = "Strong",
+                                  age = 21,
+                                  contact = "09090909",
+                                  bdayy = "1999",
+                                  bdaym = "June",
+                                  bdayd = "1",
+                                  address = "Tintay",
+                                  civil_status = "Alone",
+                                  dstartd = "1",
+                                  dstartm = "January",
+                                  dstarty = "1122",
+                                  position = "Dogstyle",
+                                  type = "emp"
+                              },
+                              new EmployeeModel {
+                                  empid = "123123",
+                                  fname = "John",
+                                  mname = "D",
+                                  lname = "Strong",
+                                  age = 21,
+                                  contact = "09090909",
+                                  bdayy = "1999",
+                                  bdaym = "June",
+                                  bdayd = "1",
+                                  address = "Tintay",
+                                  civil_status = "Alone",
+                                  dstartd = "1",
+                                  dstartm = "January",
+                                  dstarty = "1122",
+                                  position = "Dogstyle",
+                                  type = "emp"
+                              },
+                              new EmployeeModel {
+                                  empid = "123123",
+                                  fname = "John",
+                                  mname = "D",
+                                  lname = "Strong",
+                                  age = 21,
+                                  contact = "09090909",
+                                  bdayy = "1999",
+                                  bdaym = "June",
+                                  bdayd = "1",
+                                  address = "Tintay",
+                                  civil_status = "Alone",
+                                  dstartd = "1",
+                                  dstartm = "January",
+                                  dstarty = "1122",
+                                  position = "Dogstyle",
+                                  type = "emp"
+                              },
+                              new EmployeeModel {
+                                  empid = "123123",
+                                  fname = "John",
+                                  mname = "D",
+                                  lname = "Strong",
+                                  age = 21,
+                                  contact = "09090909",
+                                  bdayy = "1999",
+                                  bdaym = "June",
+                                  bdayd = "1",
+                                  address = "Tintay",
+                                  civil_status = "Alone",
+                                  dstartd = "1",
+                                  dstartm = "January",
+                                  dstarty = "1122",
+                                  position = "Dogstyle",
+                                  type = "emp"
+                              },
+                              new EmployeeModel {
+                                  empid = "123123",
+                                  fname = "John",
+                                  mname = "D",
+                                  lname = "Strong",
+                                  age = 21,
+                                  contact = "09090909",
+                                  bdayy = "1999",
+                                  bdaym = "June",
+                                  bdayd = "1",
+                                  address = "Tintay",
+                                  civil_status = "Alone",
+                                  dstartd = "1",
+                                  dstartm = "January",
+                                  dstarty = "1122",
+                                  position = "Dogstyle",
+                                  type = "emp"
+                              },
+                              new EmployeeModel {
+                                  empid = "123123",
+                                  fname = "John",
+                                  mname = "D",
+                                  lname = "Strong",
+                                  age = 21,
+                                  contact = "09090909",
+                                  bdayy = "1999",
+                                  bdaym = "June",
+                                  bdayd = "1",
+                                  address = "Tintay",
+                                  civil_status = "Alone",
+                                  dstartd = "1",
+                                  dstartm = "January",
+                                  dstarty = "1122",
+                                  position = "Dogstyle",
+                                  type = "emp"
+                              },
+                              new EmployeeModel {
+                                  empid = "123123",
+                                  fname = "John",
+                                  mname = "D",
+                                  lname = "Strong",
+                                  age = 21,
+                                  contact = "09090909",
+                                  bdayy = "1999",
+                                  bdaym = "June",
+                                  bdayd = "1",
+                                  address = "Tintay",
+                                  civil_status = "Alone",
+                                  dstartd = "1",
+                                  dstartm = "January",
+                                  dstarty = "1122",
+                                  position = "Dogstyle",
+                                  type = "emp"
+                              },
+                              new EmployeeModel {
+                                  empid = "123123",
+                                  fname = "John",
+                                  mname = "D",
+                                  lname = "Strong",
+                                  age = 21,
+                                  contact = "09090909",
+                                  bdayy = "1999",
+                                  bdaym = "June",
+                                  bdayd = "1",
+                                  address = "Tintay",
+                                  civil_status = "Alone",
+                                  dstartd = "1",
+                                  dstartm = "January",
+                                  dstarty = "1122",
+                                  position = "Dogstyle",
+                                  type = "emp"
+                              },
+                              new EmployeeModel {
+                                  empid = "123123",
+                                  fname = "John",
+                                  mname = "D",
+                                  lname = "Strong",
+                                  age = 21,
+                                  contact = "09090909",
+                                  bdayy = "1999",
+                                  bdaym = "June",
+                                  bdayd = "1",
+                                  address = "Tintay",
+                                  civil_status = "Alone",
+                                  dstartd = "1",
+                                  dstartm = "January",
+                                  dstarty = "1122",
+                                  position = "Dogstyle",
+                                  type = "emp"
+                              },
+                              new EmployeeModel {
+                                  empid = "123123",
+                                  fname = "John",
+                                  mname = "D",
+                                  lname = "Strong",
+                                  age = 21,
+                                  contact = "09090909",
+                                  bdayy = "1999",
+                                  bdaym = "June",
+                                  bdayd = "1",
+                                  address = "Tintay",
+                                  civil_status = "Alone",
+                                  dstartd = "1",
+                                  dstartm = "January",
+                                  dstarty = "1122",
+                                  position = "Dogstyle",
+                                  type = "emp"
+                              },
+                              new EmployeeModel {
+                                  empid = "123123",
+                                  fname = "John",
+                                  mname = "D",
+                                  lname = "Strong",
+                                  age = 21,
+                                  contact = "09090909",
+                                  bdayy = "1999",
+                                  bdaym = "June",
+                                  bdayd = "1",
+                                  address = "Tintay",
+                                  civil_status = "Alone",
+                                  dstartd = "1",
+                                  dstartm = "January",
+                                  dstarty = "1122",
+                                  position = "Dogstyle",
+                                  type = "emp"
+                              },
+                              new EmployeeModel {
+                                  empid = "123123",
+                                  fname = "John",
+                                  mname = "D",
+                                  lname = "Strong",
+                                  age = 21,
+                                  contact = "09090909",
+                                  bdayy = "1999",
+                                  bdaym = "June",
+                                  bdayd = "1",
+                                  address = "Tintay",
+                                  civil_status = "Alone",
+                                  dstartd = "1",
+                                  dstartm = "January",
+                                  dstarty = "1122",
+                                  position = "Dogstyle",
+                                  type = "emp"
+                              },
+                              new EmployeeModel {
+                                  empid = "123123",
+                                  fname = "John",
+                                  mname = "D",
+                                  lname = "Strong",
+                                  age = 21,
+                                  contact = "09090909",
+                                  bdayy = "1999",
+                                  bdaym = "June",
+                                  bdayd = "1",
+                                  address = "Tintay",
+                                  civil_status = "Alone",
+                                  dstartd = "1",
+                                  dstartm = "January",
+                                  dstarty = "1122",
+                                  position = "Dogstyle",
+                                  type = "emp"
+                              },
+                              new EmployeeModel {
+                                  empid = "123123",
+                                  fname = "John",
+                                  mname = "D",
+                                  lname = "Strong",
+                                  age = 21,
+                                  contact = "09090909",
+                                  bdayy = "1999",
+                                  bdaym = "June",
+                                  bdayd = "1",
+                                  address = "Tintay",
+                                  civil_status = "Alone",
+                                  dstartd = "1",
+                                  dstartm = "January",
+                                  dstarty = "1122",
+                                  position = "Dogstyle",
+                                  type = "emp"
+                              },
+                              new EmployeeModel {
+                                  empid = "123123",
+                                  fname = "John",
+                                  mname = "D",
+                                  lname = "Strong",
+                                  age = 21,
+                                  contact = "09090909",
+                                  bdayy = "1999",
+                                  bdaym = "June",
+                                  bdayd = "1",
+                                  address = "Tintay",
+                                  civil_status = "Alone",
+                                  dstartd = "1",
+                                  dstartm = "January",
+                                  dstarty = "1122",
+                                  position = "Dogstyle",
+                                  type = "emp"
+                              },
+                              new EmployeeModel {
+                                  empid = "123123",
+                                  fname = "John",
+                                  mname = "D",
+                                  lname = "Strong",
+                                  age = 21,
+                                  contact = "09090909",
+                                  bdayy = "1999",
+                                  bdaym = "June",
+                                  bdayd = "1",
+                                  address = "Tintay",
+                                  civil_status = "Alone",
+                                  dstartd = "1",
+                                  dstartm = "January",
+                                  dstarty = "1122",
+                                  position = "Dogstyle",
+                                  type = "emp"
+                              }
+                        };
+            return qq;
+        }
+        public List<TimeInModel> TimeLogDataExample() {
+            List<TimeInModel> time = new List<TimeInModel> {
+                new TimeInModel { timein = "06:31", timeout = "07:21", date = "01/01/2022", empid = "629650"},
+                new TimeInModel { timein = "06:31", timeout = "07:21", date = "01/01/2022", empid = "629650"},
+                new TimeInModel { timein = "06:31", timeout = "07:21", date = "01/01/2022", empid = "629650"},
+                new TimeInModel { timein = "06:31", timeout = "07:21", date = "01/01/2022", empid = "629650"},
+                new TimeInModel { timein = "06:31", timeout = "07:21", date = "01/01/2022", empid = "629650"},
+                new TimeInModel { timein = "06:31", timeout = "07:21", date = "01/01/2022", empid = "629650"},
+                new TimeInModel { timein = "06:31", timeout = "07:21", date = "01/01/2022", empid = "629650"},
+                new TimeInModel { timein = "06:31", timeout = "07:21", date = "01/01/2022", empid = "629650"},
+                new TimeInModel { timein = "06:31", timeout = "07:21", date = "01/01/2022", empid = "629650"},
+                new TimeInModel { timein = "06:31", timeout = "07:21", date = "01/01/2022", empid = "629650"},
+                new TimeInModel { timein = "06:31", timeout = "07:21", date = "01/01/2022", empid = "629650"},
+                new TimeInModel { timein = "06:31", timeout = "07:21", date = "01/01/2022", empid = "629650"},
+                new TimeInModel { timein = "06:31", timeout = "07:21", date = "01/01/2022", empid = "629650"},
+                new TimeInModel { timein = "06:31", timeout = "07:21", date = "01/01/2022", empid = "629650"},
+                new TimeInModel { timein = "06:31", timeout = "07:21", date = "01/01/2022", empid = "629650"},
+                new TimeInModel { timein = "06:31", timeout = "07:21", date = "01/01/2022", empid = "629650"},
+                new TimeInModel { timein = "06:31", timeout = "07:21", date = "01/01/2022", empid = "629650"},
+                new TimeInModel { timein = "06:31", timeout = "07:21", date = "01/01/2022", empid = "629650"}
+                 };
+            return time;
+
+        }
     }
 }
-//List<EmployeeModel> qq = new List<EmployeeModel> {
-//                  new EmployeeModel {
-//                      empid = "123123",
-//                      fname = "John",
-//                      mname = "D",
-//                      lname = "Strong",
-//                      age = 21,
-//                      contact = "09090909",
-//                      bdayy = "1999",
-//                      bdaym = "June",
-//                      bdayd = "1",
-//                      address = "Tintay",
-//                      civil_status = "Alone",
-//                      dstartd = "1",
-//                      dstartm = "January",
-//                      dstarty = "1122",
-//                      position = "Dogstyle",
-//                      type = "emp"
-//                  },
-//                  new EmployeeModel {
-//                      empid = "123123",
-//                      fname = "John",
-//                      mname = "D",
-//                      lname = "Strong",
-//                      age = 21,
-//                      contact = "09090909",
-//                      bdayy = "1999",
-//                      bdaym = "June",
-//                      bdayd = "1",
-//                      address = "Tintay",
-//                      civil_status = "Alone",
-//                      dstartd = "1",
-//                      dstartm = "January",
-//                      dstarty = "1122",
-//                      position = "Dogstyle",
-//                      type = "emp"
-//                  },
-//                  new EmployeeModel {
-//                      empid = "123123",
-//                      fname = "John",
-//                      mname = "D",
-//                      lname = "Strong",
-//                      age = 21,
-//                      contact = "09090909",
-//                      bdayy = "1999",
-//                      bdaym = "June",
-//                      bdayd = "1",
-//                      address = "Tintay",
-//                      civil_status = "Alone",
-//                      dstartd = "1",
-//                      dstartm = "January",
-//                      dstarty = "1122",
-//                      position = "Dogstyle",
-//                      type = "emp"
-//                  },
-//                  new EmployeeModel {
-//                      empid = "123123",
-//                      fname = "John",
-//                      mname = "D",
-//                      lname = "Strong",
-//                      age = 21,
-//                      contact = "09090909",
-//                      bdayy = "1999",
-//                      bdaym = "June",
-//                      bdayd = "1",
-//                      address = "Tintay",
-//                      civil_status = "Alone",
-//                      dstartd = "1",
-//                      dstartm = "January",
-//                      dstarty = "1122",
-//                      position = "Dogstyle",
-//                      type = "emp"
-//                  }
-//            };
