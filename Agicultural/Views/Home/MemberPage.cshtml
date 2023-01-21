@@ -26,47 +26,49 @@
     }
 
 </style>
-<div class="row">
-    <div class="col-12">
-        <div class="fixTableHead">
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th scope="col">Name</th>
-                        <th scope="col">Age</th>
-                        <th scope="col">Contact</th>
-                        <th scope="col">Birthdate</th>
-                        <th scope="col">Address</th>
-                        <th scope="col">Civil Status</th>
-                        <th scope="col">Date Hired</th>
-                        <th scope="col">Position</th>
-                        <th scope="col">Type</th>
-                        <th scope="col"></th>
-                        <th scope="col"></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @{
-                        foreach (var aa in Model)
-                        {
-                            <tr>
-                                <td>@aa.lname @aa.fname @aa.mname</td>
-                                <td>@aa.age</td>
-                                <td>@aa.contact</td>
-                                <td>@aa.birthdate</td>
-                                <td>@aa.address</td>
-                                <td>@aa.civil_status</td>
-                                <td>@aa.date_start</td>
-                                <td>@aa.position</td>
-                                <td>@aa.type</td>
-                                <td><button type="submit" class="btn btn-icon btn-primary btn-success"><i class="fe fe-edit"></i></button></td>
-                                <td><button type="submit" class="btn btn-danger"><i class="fe fe-trash"></i></button></td>
-                            </tr>
+<form asp-controller="Home" asp-action="">
+    <div class="row">
+        <div class="col-12">
+            <div class="fixTableHead">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Name</th>
+                            <th scope="col">Age</th>
+                            <th scope="col">Contact</th>
+                            <th scope="col">Birthdate</th>
+                            <th scope="col">Address</th>
+                            <th scope="col">Civil Status</th>
+                            <th scope="col">Date Hired</th>
+                            <th scope="col">Position</th>
+                            <th scope="col">Type</th>ÏÏ
+                            <th scope="col"></th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{
+                            foreach (var aa in Model)
+                            {
+                                <tr>
+                                    <td>@aa.lname @aa.fname @aa.mname</td>
+                                    <td>@aa.age</td>
+                                    <td>@aa.contact</td>
+                                    <td>@aa.birthdate</td>
+                                    <td>@aa.address</td>
+                                    <td>@aa.civil_status</td>
+                                    <td>@aa.date_start</td>
+                                    <td>@aa.position</td>
+                                    <td>@aa.type</td>
+                                    <td><button type="submit" class="btn btn-icon btn-primary btn-success"><i class="fe fe-edit"></i></button></td>
+                                    <td><button type="submit" class="btn btn-danger"><i class="fe fe-trash"></i></button></td>
+                                </tr>
+                            }
                         }
-                    }
-                </tbody>
-            </table>
+                    </tbody>
+                </table>
 
+            </div>
         </div>
     </div>
-</div>
+</form>

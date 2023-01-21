@@ -28,22 +28,16 @@ namespace Agicultural.Controllers
         public IActionResult Index()
         {
             //ViewData["d"] = GenQr("fuckyouasdsadasdasdasomuch");
-            
-            List<LoginModel> ww = new List<LoginModel> {
-                new LoginModel { empid = "111", username = "qqq", password="qwe"},
-                new LoginModel { empid = "222", username = "www", password="qwe"},
-                new LoginModel { empid = "333", username = "eee", password="qwe"},
-                new LoginModel { empid = "444", username = "rrr", password="qwe"},
-                new LoginModel { empid = "555", username = "ttt", password="qwe"},
-            };
+
+            var data = EmployeeDataExample();
+            //var data = TimeLogDataExample();
             //return View("viewQr");
             //return View("LoginType");
-            //return View("MemberPage", qq);
+            //return View("MemberPage", data);
             //return View("scan");
-            //var data = EmployeeDataExample();
             //return View("EmpDashboardPage", data);
-            //var data = TimeLogDataExample();
-            return View("EmpDashboardPage");
+            //return View("EmpDashboardPage", data);
+            return View("EditEmployeePage");
         }
         [HttpPost("[action]"), Route("/LoginType")]
         public IActionResult LoginType([FromForm] LoginTypeModel logintype)
@@ -81,12 +75,6 @@ namespace Agicultural.Controllers
 
             return View("viewQr");
         }
-        [HttpPost("[action]"), Route("/viewQr")]
-        public IActionResult viewQr()
-        {
-
-            return View();
-        }
         public string GenQr(string qr)
         {
             QRCodeGenerator generate = new QRCodeGenerator();
@@ -99,6 +87,17 @@ namespace Agicultural.Controllers
         public string Jav([FromBody] QrModel dd)
         {
             return GenQr(dd.qrmod);
+        }
+        [HttpPost("[action]"), Route("/viewQr")]
+        public IActionResult viewQr()
+        {
+            return View();
+        }
+        [HttpPost("[action]"), Route("/EditEmployeePage")]
+        public IActionResult EditEmployeePage([FromForm] EmployeeModel employee)
+        {
+
+            return View();
         }
         [HttpPost("[action]"), Route("/Dashboard")]
         public IActionResult Dashboard()
@@ -526,7 +525,16 @@ namespace Agicultural.Controllers
                 new TimeInModel { timein = "06:31", timeout = "07:21", date = "01/01/2022", empid = "629650"}
                  };
             return time;
-
+        }
+        public List<LoginModel> LoginDataExample() {
+            List<LoginModel> ww = new List<LoginModel> {
+                new LoginModel { empid = "111", username = "qqq", password="qwe"},
+                new LoginModel { empid = "222", username = "www", password="qwe"},
+                new LoginModel { empid = "333", username = "eee", password="qwe"},
+                new LoginModel { empid = "444", username = "rrr", password="qwe"},
+                new LoginModel { empid = "555", username = "ttt", password="qwe"},
+            };
+            return ww;
         }
     }
 }

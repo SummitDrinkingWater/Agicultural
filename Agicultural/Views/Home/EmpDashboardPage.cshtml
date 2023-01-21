@@ -181,6 +181,7 @@
                         <table class="table table-striped">
                             <thead>
                                 <tr>
+                                    <th scope="col">Employee ID</th>
                                     <th scope="col">Time in</th>
                                     <th scope="col">Time out</th>
                                     <th scope="col">Date</th>
@@ -190,6 +191,7 @@
                                 @foreach (var s in Model)
                                 {
                                     <tr>
+                                        <td>@s.empid</td>
                                         <td>@s.timein</td>
                                         <td>@s.timeout</td>
                                         <td>@s.date</td>
