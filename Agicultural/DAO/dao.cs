@@ -14,14 +14,12 @@ namespace Agicultural.DAO
 
         public string login(LoginModel login)
         {
-            string sql = string.Format(@"SELECT dbo.login.password, dbo.login.id
-                                        FROM dbo.employee INNER JOIN
-                                         dbo.login ON dbo.employee.empid = dbo.login.id  where login.id = '"+login.empid+"' and login.password = '"+login.password+"'");
+            string sql = string.Format(@"select empid, password from login where empid = '"+login.empid+"' and password = '"+login.password+"'");
             var count = cont.logins.FromSqlRaw(sql);
             int c = count.Count();
             if (count.Count() > 0)
                 if (login.empid == "admin") 
-                    return "Dashboard";
+                    return "MemberPage";
                 else return "EmpDashboardPage";
             else return "LoginType"; 
         }
@@ -29,15 +27,22 @@ namespace Agicultural.DAO
         public string AddEmployee(EmployeeModel emp)
         {
             string qrcode = vGenQr(emp.empid.ToString());
+            string bday = $"{emp.bdaym}-{emp.bdayd}-{emp.bdayy}";
+            string dstart = $"{emp.dstartm}-{emp.dstartm}-{emp.dstarty}";
             AddQr(qrcode, emp.empid.ToString());
             string sql = string.Format(@"Insert into employee(fname, mname, lname, age, contact, birthdate, address, civil_status, date_start, position, type, empid) 
-                                        values ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}', '{10}', '{11}')", emp.fname, emp.mname, emp.lname, emp.age, emp.contact, emp.birthdate, emp.address, emp.civil_status, emp.date_start, emp.position, emp.type, emp.empid); //<<<< query for create
+                                        values ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}', '{10}', '{11}')", emp.fname, emp.mname, emp.lname, emp.age, emp.contact, bday, emp.address, emp.civil_status, dstart, emp.position, emp.type, emp.empid); //<<<< query for create
             int count = cont.Database.ExecuteSqlRaw(sql);
 
             if (count > 0)
                 return qrcode;
             else
                 return "Failed";
+        }
+        public List<EmployeeModel> GetEmployee(string emp)
+        {
+            var data = cont.employees.FromSqlRaw($"select * from employee where empid = '"+emp+"'").ToList();
+            return  data;
         }
         public string AddQr(string qr, string fid) {
             string qrsql = string.Format(@"Insert into qrdb(qrv, f_id) values ('{0}', '{1}')", qr, fid);
@@ -66,10 +71,10 @@ namespace Agicultural.DAO
             string delete = $"Delete from employee where empid = {employee.empid}";
             cont.Database.ExecuteSqlRaw(delete);
         }
-        public List<TimeInModel> GetTimeLog()
+        public List<TimeInModel> GetTimeLogByEmp(string time)
         {
-            var gettimelog = cont.timelog.FromSqlRaw(@"select * from timedb from employee inner join 
-                                                        timedb.empid on employee.empid = timedb.empid").ToList();
+            var gettimelog = cont.timelog.FromSqlRaw(@"SELECT dbo.timedb.timein, dbo.timedb.timeout, dbo.timedb.empid, dbo.timedb.date
+                                                        FROM dbo.login INNER JOIN dbo.timedb ON dbo.login.empid = dbo.timedb.empid where dbo.timedb.empid = '"+time+"'").ToList();
             return gettimelog;
         }
         //public List<TimeInModel> GetTimeLogByDate()
