@@ -10,16 +10,11 @@ namespace Agicultural.Controllers
 {
     public class HomeController : Controller
     {
-
-
         private readonly dao DataAccess;
-
-
         //public HomeController(ILogger<HomeController> logger)
         //{
         //    _logger = logger;
         //}
-
         public HomeController(Cont con)
         {
             DataAccess = new dao(con);
@@ -164,10 +159,10 @@ namespace Agicultural.Controllers
 
        
         //============================================================== Do not edit below
-        public IActionResult Privacy()
-        {
-            return View();
-        }
+        //public IActionResult Privacy()
+        //{
+        //    return View();
+        //}
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
